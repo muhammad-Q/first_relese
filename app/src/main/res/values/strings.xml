@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">first release</string>
+    <string name="add_item">add item  </string>
+    <string name="add_item_submit"> send   </string>
+    <string name="add_item_name">name   </string>
+    <string name="add_item_nick_name">real name  </string>
+    <string name="add_item_group_id">group name </string>
+    <string name="view_items">view item  </string>
+    <string name="back_main">back  </string>
+    <string name="driver_name">driver name </string>
+    <string name="change_language">change language to arabic</string>
+    <string name="car_number">change language to arabic</string>
+    <string name="mobile_driver">change language to arabic</string>
+    <string name="charge_cost">change language to arabic</string>
+    <string name="charge_date">change language to arabic</string>
+    <string name="order_details">charge details</string>
+    <string name="make_order">make order
+
+</string>
+
+
+
+</resources>

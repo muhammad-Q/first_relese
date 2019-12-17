@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">الاصدار الاول </string>
+    <string name="add_item">اضافة عنصر  </string>
+    <string name="add_item_submit"> ارسال   </string>
+    <string name="add_item_name">الاسم   </string>
+    <string name="add_item_nick_name">الاسم المعروف  </string>
+    <string name="add_item_group_id">المجموعة  </string>
+    <string name="view_items">عرض المواد  </string>
+    <string name="driver_name">اسم السائق </string>
+    <string name="back_main"> رجوع  </string>
+    <string name="car_number">رقم السيارة</string>
+    <string name="mobile_driver">رقم الجوال (السائق)</string>
+    <string name="charge_cost">تكلفة الشحن </string>
+    <string name="charge_date">تاريخ التحميل </string>
+    <string name="make_order">ارسال طلبية </string>
+    <string name="order_details"> تفاصيل الشحن </string>
+    <string name="change_language">تغيير اللغةالى الانكليزية </string>
+
+</resources>

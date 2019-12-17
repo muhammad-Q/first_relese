@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">first release</string>
+    <string name="add_item">add item  </string>
+    <string name="add_item_submit"> send   </string>
+    <string name="add_item_name">name   </string>
+    <string name="add_item_nick_name">real name  </string>
+    <string name="add_item_group_id">group  </string>
+    <string name="view_items">view item  </string>
+    <string name="back_main">back  </string>
+    <string name="car_number">car number</string>
+    <string name="mobile_driver">mobile number (driver)</string>
+    <string name="charge_cost">charger cost </string>
+    <string name="charge_date">charge date </string>
+    <string name="make_order">make order</string>
+    <string name="driver_name">driver name </string>
+    <string name="order_details"> charge ditels </string>
+    <string name="change_language">change language to arabic</string>
+
+
+</resources>
