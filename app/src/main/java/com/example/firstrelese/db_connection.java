@@ -17,12 +17,11 @@ public class db_connection extends SQLiteOpenHelper {
     @RequiresApi(api = Build.VERSION_CODES.P)
     public db_connection(Context context) {
         super(context,dbname,null,version);
-
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE  IF NOT EXISTS subject (id INTEGER NOT NULL PRIMARY KEY,name TEXT ,nick_name,group_id  Integer ,group_name )");
+        db.execSQL("CREATE TABLE  IF NOT EXISTS subject (id INTEGER NOT NULL PRIMARY KEY,name TEXT ,nick_name,group_id  Integer ,group_name TEXT )");
     }
 public void test (SQLiteDatabase db)
 {
@@ -41,7 +40,7 @@ onCreate(db);
         ContentValues cont=new ContentValues();
         cont.put("name",name);
         cont.put("nick_name",nick_name);
-        cont.put("group_id", group_name);
+        cont.put("group_name", group_name);
         db.insert("subject",null,cont);
 
     }
@@ -54,7 +53,7 @@ cur.moveToFirst();
 while(cur.isAfterLast()==false)
 {
 //    a.add(cur.getString(cur.getColumnIndex("name")));
-    a.add(cur.getString(cur.getColumnIndex("name"))+" : "+cur.getString(cur.getColumnIndex("nick_name"))+" : "+cur.getString(cur.getColumnIndex("group_id")));
+    a.add(cur.getString(cur.getColumnIndex("name"))+" : "+cur.getString(cur.getColumnIndex("nick_name"))+" : "+cur.getString(cur.getColumnIndex("group_name")));
     cur.moveToNext();
 
 }

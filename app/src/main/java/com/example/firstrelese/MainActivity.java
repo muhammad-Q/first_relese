@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.AndroidException;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -20,13 +21,33 @@ import android.widget.Button;
 
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.firstrelese.ui.main.MainFragment;
 import com.example.firstrelese.ui.main.add_item;
 import com.example.firstrelese.ui.main.add_order;
+import com.example.firstrelese.ui.main.charge;
 import com.example.firstrelese.ui.main.view_item;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import static java.util.Locale.*;
@@ -172,5 +193,59 @@ EditText driver_name=findViewById(R.id.driver_name);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, add_order.newInstance())
                 .commitNow();
+        try {
+            java.net.URL connection_url = new java.net.URL("http://127.0.0.1:8000/login");
+            System.out.println("Instantiated new URL: " + connection_url);
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, connection_url.toString(),
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("subject_name","muhammad");
+                params.put("subject_nick_name","12345678");
+                params.put("group_id","11");
+
+//                params.put("KEY_token", token);
+                return params;
+            }
+
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+        }
+        catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        }
+    public void add_charge(View view)
+    {
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, charge.newInstance())
+                .commitNow();
+    }
+
+    public void add_charge2(View view) {
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, MainFragment.newInstance())
+                .commitNow();
+
     }
 }
+
+

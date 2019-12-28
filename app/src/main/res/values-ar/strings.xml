@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">الاصدار الاول </string>
-    <string name="add_item">اضافة عنصر  </string>
+    <string name="add_item">اضافة مادة  </string>
     <string name="add_item_submit"> ارسال   </string>
     <string name="add_item_name">الاسم   </string>
     <string name="add_item_nick_name">الاسم المعروف  </string>

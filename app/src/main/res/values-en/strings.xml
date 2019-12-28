@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">first release</string>
-    <string name="add_item">add item  </string>
+    <string name="add_item">add subject </string>
     <string name="add_item_submit"> send   </string>
     <string name="add_item_name">name   </string>
     <string name="add_item_nick_name">real name  </string>
