@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     }
     }
     private void loadWeather(String zipCode) {
-        String apiUrl = "http://192.168.1.196:8000/android";
+        String apiUrl = "http://192.168.1.196";
 
         RequestQueue mRequestQueue;
 
@@ -85,15 +86,12 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         // Load the initial JSON request
                         try {
-                          /*  JSONObject mainWeather = response.getJSONObject("main");
-                            double temperatureKelvin = mainWeather.getDouble("temp");
-                            int temperatureFahrenheit = (int) (temperatureKelvin * 9/5 - 459.67);
-
+                            JSONObject mainWeather = response.put("group_name","madaes");
                             TextView weatherTextView = (TextView) findViewById(R.id.t);
-                            weatherTextView.setText("The temperature is " + temperatureFahrenheit);
+                            weatherTextView.setText("The temperature is " );
 
-                            Toast.makeText(getBaseContext(), "The temperature is " + temperatureFahrenheit, Toast.LENGTH_SHORT).show();
-                        */
+                            Toast.makeText(getBaseContext(), "The temperature is ", Toast.LENGTH_SHORT).show();
+
                         } catch (Exception e) {
 
                             e.printStackTrace();
