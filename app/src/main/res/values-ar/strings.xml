@@ -16,5 +16,10 @@
     <string name="make_order">ارسال طلبية </string>
     <string name="order_details"> تفاصيل الشحن </string>
     <string name="change_language">تغيير اللغةالى الانكليزية </string>
+    <string name="cheese">الحديثة</string>
+    <string name="meat">اللاردن</string>
+    <string name="SEND_MESSAGE">ارسال رسالة</string>
 
+    <string name="send_message">ارسال الرسالة</string>
+    <string name="number_of_car">عدد السيارات </string>
 </resources>

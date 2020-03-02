@@ -1,8 +1,9 @@
 package com.example.firstrelese;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.res.Resources;
-import android.os.AsyncTask;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,31 +11,21 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.Cache;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.BasicNetwork;
-import com.android.volley.toolbox.DiskBasedCache;
-import com.android.volley.toolbox.HurlStack;
-import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.firstrelese.Api_package.Controller;
 import com.example.firstrelese.ui.main.MainFragment;
 import com.example.firstrelese.ui.main.add_item;
 import com.example.firstrelese.ui.main.charge;
 import com.example.firstrelese.ui.main.view_item;
 
-import org.json.JSONObject;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -43,93 +34,86 @@ import static java.util.Locale.forLanguageTag;
 public class MainActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
 
-    private static String url_create_product = "http://192.168.14.137:8000/android";
+static boolean language=false;
     // JSON Node names
     private static final String TAG_SUCCESS = "success";
+    ArrayList<String> a = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        a=new ArrayList<>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        RequestQueue requestQueue;
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, MainFragment.newInstance())
                     .commitNow();
+            Thread thread = new Thread(new Runnable() {
 
-            loadWeather("90210");
-
-            final TextView t=findViewById(R.id.t);
-
-
-    }
-    }
-    private void loadWeather(String zipCode) {
-        String apiUrl = "http://192.168.1.196";
-
-        RequestQueue mRequestQueue;
-
-        // Instantiate the cache
-        Cache cache = new DiskBasedCache(getCacheDir(), 1024 * 1024);
-
-        // Setup the network to use the HTTPURLConnection client
-        BasicNetwork network = new BasicNetwork(new HurlStack());
-
-        // Instantiate the request queue
-        mRequestQueue = new RequestQueue(cache, network);
-
-        // Start the queue
-        mRequestQueue.start();
-
-        JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                (Request.Method.POST, apiUrl, null, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        // Load the initial JSON request
+                @Override
+                public void run() {
+                    try  {
+                        UserServiceClient userServiceClient=new UserServiceClient();
                         try {
-                            JSONObject mainWeather = response.put("group_name","madaes");
-                            TextView weatherTextView = (TextView) findViewById(R.id.t);
-                            weatherTextView.setText("The temperature is " );
+                            controller controller = new controller();
 
-                            Toast.makeText(getBaseContext(), "The temperature is ", Toast.LENGTH_SHORT).show();
 
-                        } catch (Exception e) {
 
+                            final TextView t = findViewById(R.id.t);
+
+
+
+                        } catch (IOException e) {
                             e.printStackTrace();
                         }
-                    } },
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                error.printStackTrace();
+                        //Your code goes here
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
 
-                                VolleyLog.e("Error: ", error.toString());
-                                VolleyLog.e("Error: ", error.getLocalizedMessage());
-                            }
-                        });
+            thread.start();
 
-        // Add the request to the RequestQueue
-        mRequestQueue.add(jsObjRequest);
+
+
+
+           // sendWhatsAppMessageTo("963934519076");
+           /* PackageManager pm=getPackageManager();
+            try {
+
+                Intent waIntent = new Intent(Intent.ACTION_SEND);
+                waIntent.setType("text/plain");
+                String text = "hello";
+
+                PackageInfo info=pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
+                //Check if package exists or not. If not then code
+                //in catch block will be called
+                waIntent.setPackage("com.whatsapp");
+
+                waIntent.putExtra(Intent.EXTRA_TEXT, text);
+                startActivity(Intent.createChooser(waIntent, "963934519076"));
+
+            } catch (PackageManager.NameNotFoundException e) {
+                Toast.makeText(this, "WhatsApp not Installed", Toast.LENGTH_SHORT)
+                        .show();
+            }*/
+            /*Uri uri=Uri.parse("smsto:"+"963934519076/Happy Club");
+            Intent intent=new Intent(Intent.ACTION_SENDTO,uri);
+            intent.setPackage("com.whatsapp");
+            startActivity(intent);*/
+
+        }
     }
-    public class myconnection extends AsyncTask<String,String,String>{
+    public void sendWhatsAppMessageTo(String whatsappid) {
 
-        @Override
-        protected void onProgressUpdate(String... values) {
-            super.onProgressUpdate(values);
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse(
+                        String.format("https://api.whatsapp.com/send?phone=%s&text=%s",
+                                "9630934519076/Happy Club","Happy Club", "ddd"))));
 
-        }
+       }
 
-        @Override
-        protected void onPreExecute() {
-
-            super.onPreExecute();
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-
-        return null;
-        }
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.P)
     public void view_item(View view) {
@@ -137,8 +121,8 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.container, view_item.newInstance())
                     .commitNow();
             ListView list = (ListView) findViewById(R.id.list);
-        db = new db_connection(this);
-        ArrayList<String> a = db.print();
+
+
         list.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, a));
         }
     public void add_item(View view) {
@@ -146,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                         .replace(R.id.container, add_item.newInstance())
                         .commitNow();
     }
-    db_connection db;
+
     @RequiresApi(api = Build.VERSION_CODES.P)
     public void db_save(View view) {
         EditText name = (EditText) findViewById(R.id.name);
@@ -155,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
 
         ListView list = (ListView) findViewById(R.id.list);
 
-        db = new db_connection(this);
+
        if(TextUtils.isEmpty(name.getText())){
                 name.setError("Name is Required.");
                 return;
@@ -169,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                 group_name.setError("group is Required.");
                 return;
             }
-            db.insert(name.getText().toString(),nick_name.getText().toString(),group_name.getText().toString());
+
             name.setText("");
             nick_name.setText("");
             group_name.setText("");
@@ -191,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void change_language(View view) {
 Button current_language =findViewById(R.id.language_button);
-if(current_language.getText().equals("change language to arabic")) {
+if(!language) {
     Locale locale = new Locale("ar");
     Resources resources = getResources();
     android.content.res.Configuration configuration = new android.content.res.Configuration();
@@ -203,7 +187,7 @@ if(current_language.getText().equals("change language to arabic")) {
 
     finish();
     startActivity(this.getIntent());
-
+language=true;
 }
 else{
     Locale locale = new Locale("en");
@@ -305,12 +289,52 @@ System.out.print("feild");
     }
 
     public void add_charge2(View view) {
+        TextView driver_name=findViewById(R.id.driver_name);
+        TextView driver_number=findViewById(R.id.driver_number);
+        TextView car_number=findViewById(R.id.car_number);
+        CheckBox j=findViewById(R.id.checkbox_j);
+        CheckBox a=findViewById(R.id.checkbox_a);
+        TextView number_of_car=findViewById(R.id.number_of_car);
+        if(TextUtils.isEmpty(driver_name.getText())){
+            driver_name.setError("your name  is Required.");
+            return;
+        }
+        if(TextUtils.isEmpty(car_number.getText())){
+            car_number.setError("car_number is Required.");
+            return;
+        }
 
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
-                .commitNow();
+        if(TextUtils.isEmpty(driver_number.getText())){
+            driver_number.setError("your phone number  is Required.");
+            return;
+        }
+        if(TextUtils.isEmpty(number_of_car.getText())){
+            car_number.setError("car_number is Required.");
+            return;
+        }
+        String message ="";
+        if(j.isChecked())
+        {
+            message+="<✅تخليص الحديثة<:\n";
+        }
+        if(a.isChecked())
+        {
+            message+="<✅تخليص الأردن والأمانة<\n";
+        }
+        message+="عدد"+number_of_car.getText().toString()+" من قبلنا\n";
+     message+= " السائق :"+driver_name.getText().toString()+"\n رقم السيارة  :"+car_number.getText().toString()+"\n جوال السائق   :"+driver_number.getText().toString()+"\n  شاكرين تعاونكم معنا";
+        String phoneNumberWithCountryCode = "+963943050888";
+
+
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse(
+                        String.format("https://api.chat-api.com/instance101871/sendMessage?token=zvxn5k8k6vuaz4c5&chatId=963953436713-1470309480@g.us&body="+message,
+                                phoneNumberWithCountryCode, message))));
+
+
 
     }
 }
 
 
+    

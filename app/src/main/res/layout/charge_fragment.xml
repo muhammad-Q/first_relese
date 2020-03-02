@@ -7,27 +7,71 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="611dp"
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
+            android:id="@+id/driver_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:ems="10"
-            android:hint="number of car"
+            android:hint="@string/driver_name"
+            android:inputType="textPersonName" />
 
+        <EditText
+            android:id="@+id/driver_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/mobile_driver"
             android:inputType="number" />
+
+        <EditText
+            android:id="@+id/car_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/car_number"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/number_of_car"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/number_of_car"
+            android:inputType="number" />
+
+        <CheckBox
+            android:id="@+id/checkbox_j"
+            android:layout_width="367dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/cheese"
+            tools:ignore="OnClick" />
+
+        <CheckBox
+            android:id="@+id/checkbox_a"
+            android:layout_width="365dp"
+            android:layout_height="wrap_content"
+
+            android:text="@string/meat"
+            tools:ignore="OnClick" />
 
         <Button
             android:id="@+id/submit_number_of_car"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_margin="50dp"
             android:layout_weight="1"
-            android:onClick="add_charge2"
 
-            android:text="Button"
+            android:onClick="add_charge2"
+            android:text="@string/send_message"
             tools:ignore="OnClick" />
+
     </LinearLayout>
+
 </FrameLayout>

@@ -14,10 +14,12 @@
     <string name="charge_cost">change language to arabic</string>
     <string name="charge_date">change language to arabic</string>
     <string name="order_details">charge details</string>
-    <string name="make_order">make order
-
-</string>
-
+    <string name="make_order">make order</string>
+      <string name="cheese">الحديثة</string>
+    <string name="meat">اللاردن</string>
+    <string name="send_message">ارسال الرسالة</string>
+    <string name="number_of_car">عدد السيارات </string>
+    <string name="SEND_MESSAGE">ارسال رسالة</string>
 
 
 </resources>

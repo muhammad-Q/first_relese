@@ -14,7 +14,7 @@
         android:layout_height="70dp"
         android:background="@drawable/ic_language_black_24dp"
         android:onClick="change_language"
-        android:text="@string/change_language"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="add_charge"
-            android:text="Button"
+            android:text="@string/SEND_MESSAGE"
             tools:ignore="OnClick" />
 
         <Button

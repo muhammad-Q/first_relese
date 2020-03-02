@@ -17,6 +17,11 @@
     <string name="driver_name">driver name </string>
     <string name="order_details"> charge ditels </string>
     <string name="change_language">change language to arabic</string>
+    <string name="cheese">new</string>
+    <string name="SEND_MESSAGE">send message</string>
 
+    <string name="meat">jordan</string>
+    <string name="send_message">send message</string>
+    <string name="number_of_car">number of car </string>
 
 </resources>
