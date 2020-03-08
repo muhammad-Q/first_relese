@@ -22,4 +22,14 @@
 
     <string name="send_message">ارسال الرسالة</string>
     <string name="number_of_car">عدد السيارات </string>
+    <string name="decleration">البيان الجمركي</string>
+    <string name="case_wight">وزن الكيس</string>
+    <string name="send_message_nasib">ارسال رسالة الى نصيب</string>
+    <string name="company_name">اسم الشركة </string>
+    <string name="car_rentall">اجار السيارة </string>
+    <string name="price">السعر </string>
+    <string name="costumes_decleration">البيان الجمركي </string>
+    <string name="bag_weight">وزن الوحدة</string>
+    <string name="save_sitting">حفظ الاعدادات</string>
+    <string name="save_new_group">اضافة مجموعة جديدة</string>
 </resources>

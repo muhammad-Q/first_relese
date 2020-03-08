@@ -20,6 +20,16 @@
     <string name="send_message">ارسال الرسالة</string>
     <string name="number_of_car">عدد السيارات </string>
     <string name="SEND_MESSAGE">ارسال رسالة</string>
+    <string name="decleration">decleration</string>
+    <string name="case_wight">case_wight</string>
+    <string name="send_message_nasib">send message nasib</string>
+    <string name="company_name">company name</string>
+    <string name="car_rentall">car rental</string>
+    <string name="price">price</string>
+    <string name="costumes_decleration">costumes decleration</string>
+    <string name="bag_weight">bag_weight</string>
+    <string name="save_sitting">save_sitting</string>
+    <string name="save_new_group">save new group</string>
 
 
 </resources>

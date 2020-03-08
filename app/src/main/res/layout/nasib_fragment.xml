@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".nasib">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="611dp"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <EditText
+            android:id="@+id/number_of_car_nasib"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/number_of_car"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/car_number_nasib"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/car_number"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/decleration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/decleration"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/case_wight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/case_wight"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/submit_number_of_car"
+
+
+            android:layout_width="377dp"
+            android:layout_height="165dp"
+            android:onClick="send_message_to_nasib"
+            android:text="@string/send_message"
+            tools:ignore="OnClick" />
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="match_parent"
+            android:layout_height="118dp"
+            android:onClick="back_main"
+            android:text="@string/back_main"
+            tools:ignore="OnClick" />
+
+    </LinearLayout>
+
+
+</FrameLayout>

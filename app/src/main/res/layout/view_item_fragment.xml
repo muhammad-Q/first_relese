@@ -18,10 +18,11 @@
             android:onClick="back_main"
             tools:ignore="OnClick" />
 
-        <ListView
-            android:id="@+id/list"
-            android:layout_width="412dp"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:id="@+id/list_item1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"></LinearLayout>
 
 
     </LinearLayout>

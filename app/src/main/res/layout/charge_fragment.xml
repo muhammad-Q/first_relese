@@ -7,9 +7,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="611dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20dp">
+
+        <EditText
+            android:id="@+id/company_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/company_name"
+            android:inputType="textPersonName"
+
+            />
 
         <EditText
             android:id="@+id/driver_name"
@@ -25,7 +35,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/mobile_driver"
-            android:inputType="number" />
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/car_number"
@@ -36,40 +46,53 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/number_of_car"
+            android:id="@+id/car_rental"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/number_of_car"
+            android:hint="@string/car_rentall"
             android:inputType="number" />
 
-        <CheckBox
-            android:id="@+id/checkbox_j"
-            android:layout_width="367dp"
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/price"
+            android:inputType="number" />
 
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:text="@string/cheese"
-            tools:ignore="OnClick" />
-
-        <CheckBox
-            android:id="@+id/checkbox_a"
-            android:layout_width="365dp"
+        <EditText
+            android:id="@+id/costumes_decleration"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/costumes_decleration"
+            android:inputType="textPersonName" />
 
-            android:text="@string/meat"
-            tools:ignore="OnClick" />
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/car_rentall"
+            android:inputType="textPersonName" />
+
 
         <Button
             android:id="@+id/submit_number_of_car"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_margin="50dp"
-            android:layout_weight="1"
-
+            android:layout_height="67dp"
             android:onClick="add_charge2"
             android:text="@string/send_message"
+
+            tools:ignore="OnClick" />
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:onClick="back_main"
+            android:text="@string/back_main"
             tools:ignore="OnClick" />
 
     </LinearLayout>

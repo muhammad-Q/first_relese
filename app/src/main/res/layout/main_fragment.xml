@@ -31,13 +31,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/t"
-            android:layout_width="match_parent"
-            android:layout_height="146dp"
-            android:text="TextView" />
-
         <Button
             android:id="@+id/add_charge"
             android:layout_width="match_parent"
@@ -45,6 +38,14 @@
             android:onClick="add_charge"
             android:text="@string/SEND_MESSAGE"
             tools:ignore="OnClick" />
+
+        <Button
+            android:id="@+id/send_message_nasib"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="nasib_frag"
+            android:hint="@string/send_message_nasib"
+            android:text="@string/send_message_nasib" />
 
         <Button
             android:id="@+id/add_subject_button"
@@ -64,7 +65,7 @@
             android:id="@+id/make_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="make_order"
+            android:onClick="add_edit"
             android:text="@string/make_order"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -77,12 +78,7 @@
             android:layout_marginBottom="444dp"
             android:onClick="view_item"
             android:text="@string/view_items"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.538"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
+
             tools:ignore="OnClick" />
 
     </LinearLayout>

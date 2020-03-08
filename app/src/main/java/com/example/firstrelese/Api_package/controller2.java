@@ -17,7 +17,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-class Controller implements Callback<List<WhatsappMessageBody>> {
+public class controller2 implements Callback<List<WhatsappMessageBody>> {
 
     static final String BASE_URL = "https://git.eclipse.org/r/";
 
